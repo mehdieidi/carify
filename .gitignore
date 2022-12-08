@@ -16,5 +16,5 @@
 
 .vscode/
 logs.log
-datafetch
-datafetch.exe
+datafetch/datafetch
+datafetch/datafetch.exe
