@@ -1,0 +1,170 @@
+{
+    "sections": [
+      {
+        "section_name": "BREADCRUMB",
+        "widgets": [
+          {
+            "widget_type": "BREADCRUMB",
+            "data": {}
+          }
+        ]
+      },
+      {
+        "section_name": "TITLE",
+        "widgets": [
+          {
+            "widget_type": "LEGEND_TITLE_ROW",
+            "data": {
+              "title": "پراید 141 ساده، مدل ۱۳۸۳"
+            }
+          },
+          {
+            "widget_type": "SELECTOR_ROW",
+            "data": {
+              "title": "زنگ خطرهای قبل از معامله"
+            }
+          }
+        ]
+      },
+      {
+        "section_name": "DESCRIPTION",
+        "widgets": [
+          {
+            "widget_type": "SECTION_TITLE_ROW",
+            "data": {
+              "title": "توضیحات"
+            }
+          },
+          {
+            "widget_type": "DESCRIPTION_ROW",
+            "data": {}
+          }
+        ]
+      },
+      {
+        "section_name": "IMAGE",
+        "widgets": [
+          {
+            "widget_type": "IMAGE_CAROUSEL",
+            "data": {
+              "items": [
+                {
+                  "title": "",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "section_name": "LIST_DATA",
+        "widgets": [
+          {
+            "widget_type": "GROUP_INFO_ROW",
+            "data": {
+              "items": [
+                {
+                  "title": "کارکرد",
+                  "value": "۳۵۰٬۰۰۰"
+                },
+                {
+                  "title": "مدل (سال تولید)",
+                  "value": "۱۳۸۳"
+                },
+                {
+                  "title": "رنگ",
+                  "value": "اطلسی"
+                }
+              ]
+            }
+          },
+          {
+            "widget_type": "UNEXPANDABLE_ROW",
+            "data": {
+              "title": "برند و تیپ",
+              "value": "پراید 141 ساده"
+            }
+          },
+          {
+            "widget_type": "UNEXPANDABLE_ROW",
+            "data": {
+              "title": "وضعیت موتور",
+              "value": "سالم"
+            }
+          },
+          {
+            "widget_type": "UNEXPANDABLE_ROW",
+            "data": {
+              "title": "وضعیت شاسی‌ها",
+              "value": "سالم و پلمپ"
+            }
+          },
+          {
+            "widget_type": "UNEXPANDABLE_ROW",
+            "data": {
+              "title": "وضعیت بدنه",
+              "value": "خط و خش جزیی"
+            }
+          },
+          {
+            "widget_type": "UNEXPANDABLE_ROW",
+            "data": {
+              "title": "مهلت بیمهٔ شخص ثالث",
+              "value": "۳ ماه"
+            }
+          },
+          {
+            "widget_type": "UNEXPANDABLE_ROW",
+            "data": {
+              "title": "گیربکس",
+              "value": "دنده‌ای"
+            }
+          },
+          {
+            "widget_type": "UNEXPANDABLE_ROW",
+            "data": {
+              "title": "قیمت فروش نقدی",
+              "value": "۶۵٬۰۰۰٬۰۰۰ تومان"
+            }
+          }
+        ]
+      },
+      {
+        "section_name": "TAGS",
+        "widgets": [
+          {
+            "widget_type": "WRAPPER_ROW",
+            "data": {}
+          }
+        ]
+      },
+      {
+        "section_name": "SUGGESTION",
+        "widgets": null
+      },
+      {
+        "section_name": "NOTE",
+        "widgets": [
+          {
+            "widget_type": "NOTE",
+            "data": {
+              "title": "یادداشت من"
+            }
+          }
+        ]
+      },
+      {
+        "section_name": "STATIC",
+        "widgets": [
+          {
+            "widget_type": "SELECTOR_ROW",
+            "data": {
+              "title": "ثبت تخلف و مشکل آگهی"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  

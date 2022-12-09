@@ -1,0 +1,527 @@
+{
+  "sections": [
+    {
+      "section_name": "BREADCRUMB",
+      "widgets": [
+        {
+          "widget_type": "BREADCRUMB",
+          "data": {
+            "@type": "type.googleapis.com/widgets.BreadcrumbData",
+            "parent_items": [
+              {
+                "title": "وسایل نقلیه",
+                "action": {
+                  "type": "OPEN_POSTLIST_PAGE",
+                  "payload": {
+                    "@type": "type.googleapis.com/widgets.OpenPostListPagePayload",
+                    "web_url": "isfahan/vehicles"
+                  }
+                }
+              },
+              {
+                "title": "خودرو",
+                "action": {
+                  "type": "OPEN_POSTLIST_PAGE",
+                  "payload": {
+                    "@type": "type.googleapis.com/widgets.OpenPostListPagePayload",
+                    "web_url": "isfahan/auto"
+                  }
+                }
+              },
+              {
+                "title": "سواری و وانت",
+                "action": {
+                  "type": "OPEN_POSTLIST_PAGE",
+                  "payload": {
+                    "@type": "type.googleapis.com/widgets.OpenPostListPagePayload",
+                    "web_url": "isfahan/car"
+                  }
+                }
+              },
+              {
+                "title": "پراید",
+                "action": {
+                  "type": "OPEN_POSTLIST_PAGE",
+                  "payload": {
+                    "@type": "type.googleapis.com/widgets.OpenPostListPagePayload",
+                    "web_url": "isfahan/car/pride"
+                  }
+                }
+              },
+              {
+                "title": "141",
+                "action": {
+                  "type": "OPEN_POSTLIST_PAGE",
+                  "payload": {
+                    "@type": "type.googleapis.com/widgets.OpenPostListPagePayload",
+                    "web_url": "isfahan/car/pride/141"
+                  }
+                }
+              },
+              {
+                "title": "ساده",
+                "action": {
+                  "type": "OPEN_POSTLIST_PAGE",
+                  "payload": {
+                    "@type": "type.googleapis.com/widgets.OpenPostListPagePayload",
+                    "web_url": "isfahan/car/pride/141/basic"
+                  }
+                }
+              }
+            ],
+            "current_page_title": "پراید 141 ساده، مدل ۱۳۸۸",
+            "padded": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "TITLE",
+      "widgets": [
+        {
+          "widget_type": "LEGEND_TITLE_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.LegendTitleRowData",
+            "title": "پراید 141 ساده، مدل ۱۳۸۸",
+            "subtitle": "۵ ساعت پیش در اصفهان، تخت فولاد | سواری و وانت",
+            "has_divider": true
+          }
+        },
+        {
+          "widget_type": "SELECTOR_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.SelectorRowData",
+            "title": "زنگ خطرهای قبل از معامله",
+            "action": {
+              "type": "LOAD_PAGE",
+              "payload": {
+                "@type": "type.googleapis.com/widgets.LoadPagePayload",
+                "widget_list": [
+                  {
+                    "widget_type": "BREADCRUMB",
+                    "data": {
+                      "@type": "type.googleapis.com/widgets.BreadcrumbData",
+                      "parent_items": [
+                        {
+                          "title": "بازگشت به آگهی",
+                          "action": {
+                            "type": "HISTORY_BACK"
+                          }
+                        }
+                      ],
+                      "padded": true
+                    }
+                  },
+                  {
+                    "widget_type": "PAGE_TITLE_ROW",
+                    "data": {
+                      "@type": "type.googleapis.com/widgets.PageTitleRowData",
+                      "title": "زنگ خطرهای قبل از معامله"
+                    }
+                  },
+                  {
+                    "widget_type": "DESCRIPTION_ROW",
+                    "data": {
+                      "@type": "type.googleapis.com/widgets.DescriptionRowData",
+                      "text": "از پرداخت بیعانه بپرهیزید.\n\nبرای صحت‌سنجی اطلاعات خودرو، از کارشناس معتمد خود کمک بگیرید.\n\nهنگام خرید لوازم جانبی وسایل نقلیه، از تقلبی نبودن آن مطمئن شوید.",
+                      "is_primary": true,
+                      "padded": true
+                    }
+                  },
+                  {
+                    "widget_type": "DOTTED_DIVIDER_ROW",
+                    "data": {
+                      "@type": "type.googleapis.com/widgets.DottedDividerRowData",
+                      "primary": true
+                    }
+                  },
+                  {
+                    "widget_type": "SECTION_TITLE_ROW",
+                    "data": {
+                      "@type": "type.googleapis.com/widgets.SectionTitleRowData",
+                      "title": "مشکلی برایتان پیش آمده است؟",
+                      "title_color": "TEXT_PRIMARY",
+                      "padding": "ALT"
+                    }
+                  },
+                  {
+                    "widget_type": "DESCRIPTION_ROW",
+                    "data": {
+                      "@type": "type.googleapis.com/widgets.DescriptionRowData",
+                      "text": "در صورت بروز مشکل و یا شناسایی نشانه‌های مشکوک، لطفاً آگهی را در صفحهٔ «ثبت تخلف و مشکل آگهی» گزارش دهید. تمام آگهی‌های گزارش‌شده در دیوار بررسی می‌شوند و در صورت صحت گزارش، آگهی مورد نظر حذف و حساب کاربر خاطی مسدود می‌شود. نتیجهٔ گزارش نیز با پیامک به شما اطلاع داده می‌شود. این صفحه در انتهای تمام آگهی‌ها در دسترس است.",
+                      "is_primary": true,
+                      "padded": true
+                    }
+                  },
+                  {
+                    "widget_type": "IMAGE_SLIDER_ROW",
+                    "data": {
+                      "@type": "type.googleapis.com/widgets.ImageSliderRowData",
+                      "items": [
+                        {
+                          "image_url": "https://jobs.divarcdn.com/jobs-fraud-alert.png"
+                        }
+                      ],
+                      "background_color": "TRANSPARENT"
+                    }
+                  }
+                ]
+              }
+            },
+            "has_divider": true,
+            "icon": {
+              "image_url_dark": "https://s100.divarcdn.com/static/imgs/widget-icons/dark/icon_secondary/warning.png",
+              "image_url_light": "https://s100.divarcdn.com/static/imgs/widget-icons/light/icon_secondary/warning.png",
+              "icon_name": "WARNING",
+              "icon_color": "ICON_SECONDARY"
+            },
+            "has_arrow": true
+          },
+          "action_log": {
+            "server_side_info": {
+              "item_type": {
+                "type": "POST_WARNING"
+              },
+              "info": {
+                "@type": "type.googleapis.com/action_log.PostWarningInfo",
+                "post_token": "wYFKsQwZ"
+              }
+            },
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "DESCRIPTION",
+      "widgets": [
+        {
+          "widget_type": "SECTION_TITLE_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.SectionTitleRowData",
+            "title": "توضیحات",
+            "title_color": "TEXT_PRIMARY",
+            "padding": "ALT"
+          }
+        },
+        {
+          "widget_type": "DESCRIPTION_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.DescriptionRowData",
+            "text": "با سلام و احترام \nلطفا اول توضیحات رو بخونید و بعد تماس بگیرید\n\nپراید ۱۴۱ خیلی تمیز و روپا فرمان هیدرولیک در حد ۹۳ و موتوریش خیلی نسبت به این جدیدا بهتره \n\nرنگ فابریک و فقط یه تیکه کوچیک گلیگیر جلو رنگی دارد \nدرب راننده یه ضربه یکی پارسال زده بهش تو پارک که بوده  خیلی جزیی رفته تو که دستش نزاشتم و فابریک\n\nبه تازگی کولر رو گاز کردم نو نو و یخچال \nبخاری عالی \nتک استارت روشن \nگازی بود ولی به خاطر گذشتن تاریخ مخزن گاز باز کردم \nولی تمام وسایل گازش هست فقط مخزن میخاد \nمعاینه فنی ۱ سال تازه گرفتم .\nروکش صندلی تمیز هست اما نو نیست \nبیشتر مصرفی هاشو خرد خرد عوض کردم \n\nبه تازگی هم ۲ تومن خرجش کردم \nاز لنت و پلس و رادیاتور و فن و ...نو شده \n\nیه تصادف جزیی داشتم پارسال که شاسی خیلی کم ضربه دید و درستش کردم و مشکلی نداره به شرط\n\nاگه مشکل مالی و بدهی نداشتم به هیچ وجه نمیفروختم .انشالله هر کی خرید خیرشو ببینه و کیف کنه باهاش . \nفقط معاوضه با روا  و اردی تمیز  تمام\nقیمت مقطوع مقطوع هست .",
+            "is_primary": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "IMAGE",
+      "widgets": [
+        {
+          "widget_type": "IMAGE_CAROUSEL",
+          "data": {
+            "@type": "type.googleapis.com/widgets.ImageCarouselData",
+            "items": [
+              {
+                "image": {
+                  "url": "https://s101.divarcdn.com/static/pictures/1670585648/wYFKsQwZ.jpg",
+                  "alt": "پراید 141 ساده، مدل ۱۳۸۸|سواری و وانت|اصفهان, تخت فولاد|دیوار"
+                }
+              },
+              {
+                "image": {
+                  "url": "https://s101.divarcdn.com/static/pictures/1670585648/wYFKsQwZ.1.jpg",
+                  "alt": "پراید 141 ساده، مدل ۱۳۸۸|سواری و وانت|اصفهان, تخت فولاد|دیوار"
+                }
+              },
+              {
+                "image": {
+                  "url": "https://s101.divarcdn.com/static/pictures/1670585648/wYFKsQwZ.2.jpg",
+                  "alt": "پراید 141 ساده، مدل ۱۳۸۸|سواری و وانت|اصفهان, تخت فولاد|دیوار"
+                }
+              },
+              {
+                "image": {
+                  "url": "https://s101.divarcdn.com/static/pictures/1670585648/wYFKsQwZ.3.jpg",
+                  "alt": "پراید 141 ساده، مدل ۱۳۸۸|سواری و وانت|اصفهان, تخت فولاد|دیوار"
+                }
+              },
+              {
+                "image": {
+                  "url": "https://s101.divarcdn.com/static/pictures/1670585648/wYFKsQwZ.4.jpg",
+                  "alt": "پراید 141 ساده، مدل ۱۳۸۸|سواری و وانت|اصفهان, تخت فولاد|دیوار"
+                }
+              },
+              {
+                "image": {
+                  "url": "https://s101.divarcdn.com/static/pictures/1670585648/wYFKsQwZ.5.jpg",
+                  "alt": "پراید 141 ساده، مدل ۱۳۸۸|سواری و وانت|اصفهان, تخت فولاد|دیوار"
+                }
+              },
+              {
+                "image": {
+                  "url": "https://s101.divarcdn.com/static/pictures/1670585648/wYFKsQwZ.6.jpg",
+                  "alt": "پراید 141 ساده، مدل ۱۳۸۸|سواری و وانت|اصفهان, تخت فولاد|دیوار"
+                }
+              },
+              {
+                "image": {
+                  "url": "https://s101.divarcdn.com/static/pictures/1670585648/wYFKsQwZ.7.jpg",
+                  "alt": "پراید 141 ساده، مدل ۱۳۸۸|سواری و وانت|اصفهان, تخت فولاد|دیوار"
+                }
+              }
+            ],
+            "image_aspect_ratio": {
+              "dynamic_aspect_ratio": {
+                "height": 1,
+                "width": 1
+              }
+            },
+            "has_preview": true,
+            "has_thumbnails": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "LIST_DATA",
+      "widgets": [
+        {
+          "widget_type": "GROUP_INFO_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.GroupInfoRow",
+            "items": [
+              {
+                "title": "کارکرد",
+                "value": "۱۸۷٬۰۰۰"
+              },
+              {
+                "title": "مدل (سال تولید)",
+                "value": "۱۳۸۸"
+              },
+              {
+                "title": "رنگ",
+                "value": "سفید"
+              }
+            ],
+            "has_divider": true
+          }
+        },
+        {
+          "widget_type": "UNEXPANDABLE_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.UnexpandableRowData",
+            "title": "برند و تیپ",
+            "value": "پراید 141 ساده",
+            "action": {
+              "type": "OPEN_POSTLIST_PAGE",
+              "payload": {
+                "@type": "type.googleapis.com/widgets.OpenPostListPagePayload",
+                "web_url": "isfahan/car/pride/141/basic",
+                "tooltip": "آگهی‌های بیشتر برای پراید 141 ساده"
+              }
+            },
+            "has_divider": true
+          }
+        },
+        {
+          "widget_type": "UNEXPANDABLE_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.UnexpandableRowData",
+            "title": "وضعیت موتور",
+            "value": "سالم",
+            "has_divider": true
+          }
+        },
+        {
+          "widget_type": "UNEXPANDABLE_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.UnexpandableRowData",
+            "title": "شاسی جلو",
+            "value": "ضربه‌خورده",
+            "has_divider": true
+          }
+        },
+        {
+          "widget_type": "UNEXPANDABLE_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.UnexpandableRowData",
+            "title": "شاسی عقب",
+            "value": "سالم و پلمپ",
+            "has_divider": true
+          }
+        },
+        {
+          "widget_type": "UNEXPANDABLE_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.UnexpandableRowData",
+            "title": "وضعیت بدنه",
+            "value": "خط و خش جزیی",
+            "has_divider": true
+          }
+        },
+        {
+          "widget_type": "UNEXPANDABLE_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.UnexpandableRowData",
+            "title": "مهلت بیمهٔ شخص ثالث",
+            "value": "۱۲ ماه",
+            "has_divider": true
+          }
+        },
+        {
+          "widget_type": "UNEXPANDABLE_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.UnexpandableRowData",
+            "title": "گیربکس",
+            "value": "دنده‌ای",
+            "has_divider": true
+          }
+        },
+        {
+          "widget_type": "UNEXPANDABLE_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.UnexpandableRowData",
+            "title": "قیمت فروش نقدی",
+            "value": "۱۰۵٬۰۰۰٬۰۰۰ تومان",
+            "has_divider": true
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "TAGS",
+      "widgets": [
+        {
+          "widget_type": "WRAPPER_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.WrapperRowData",
+            "chip_list": {
+              "chips": [
+                {
+                  "text": "سواری و وانت",
+                  "type": "ACTION",
+                  "action": {
+                    "type": "OPEN_POSTLIST_PAGE",
+                    "payload": {
+                      "@type": "type.googleapis.com/widgets.OpenPostListPagePayload",
+                      "web_url": "isfahan/car"
+                    }
+                  }
+                },
+                {
+                  "text": "سواری و وانت در تخت فولاد",
+                  "type": "ACTION",
+                  "action": {
+                    "type": "OPEN_POSTLIST_PAGE",
+                    "payload": {
+                      "@type": "type.googleapis.com/widgets.OpenPostListPagePayload",
+                      "web_url": "isfahan/car/takht-foulad"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "MAP",
+      "widgets": [
+        {
+          "widget_type": "MAP_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.MapRowData",
+            "location": {
+              "exact_data": {
+                "point": {
+                  "latitude": 32.63009,
+                  "longitude": 51.68552
+                }
+              }
+            },
+            "image_url": "https://api.divar.ir/v8/mapimage/1670585648/wYFKsQwZ.png"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "SUGGESTION"
+    },
+    {
+      "section_name": "NOTE",
+      "widgets": [
+        {
+          "widget_type": "NOTE",
+          "data": {
+            "@type": "type.googleapis.com/widgets.NoteData",
+            "title": "یادداشت من",
+            "button_title": "ویرایش یادداشت",
+            "post_token": "wYFKsQwZ"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "STATIC",
+      "widgets": [
+        {
+          "widget_type": "SELECTOR_ROW",
+          "data": {
+            "@type": "type.googleapis.com/widgets.SelectorRowData",
+            "title": "ثبت تخلف و مشکل آگهی",
+            "action": {
+              "type": "OPEN_POST_REPORT",
+              "payload": {
+                "@type": "type.googleapis.com/widgets.OpenPostReportPayload",
+                "post_token": "wYFKsQwZ"
+              }
+            },
+            "has_divider": true,
+            "icon": {
+              "image_url_dark": "https://s100.divarcdn.com/static/imgs/widget-icons/dark/icon_secondary/info_outline.png",
+              "image_url_light": "https://s100.divarcdn.com/static/imgs/widget-icons/light/icon_secondary/info_outline.png",
+              "icon_name": "INFO_OUTLINE",
+              "icon_color": "ICON_SECONDARY"
+            },
+            "small": true
+          }
+        }
+      ]
+    }
+  ],
+  "share": {
+    "title": "پراید 141 ساده، مدل ۱۳۸۸",
+    "web_url": "https://divar.ir/v/wYFKsQwZ",
+    "image_url": "https://s100.divarcdn.com/static/thumbnails/1670585648/wYFKsQwZ.jpg"
+  },
+  "seo": {
+    "title": "پراید 141 ساده، مدل ۱۳۸۸|سواری و وانت|اصفهان، تخت فولاد|دیوار",
+    "description": "پراید 141 ساده، مدل ۱۳۸۸|سواری و وانت|اصفهان، تخت فولاد|خرید و فروش با سلام و احترام \nلطفا اول توضیحات رو بخونید و بعد تماس بگیرید\n\nپراید ۱۴۱ خیلی تمیز و روپا فرمان هیدرولیک در حد ۹۳ و موتوریش خیلی نسبت به این جدیدا بهتره \n\nرنگ فابریک و فقط یه تیکه کوچیک گلیگیر جلو رنگی دارد \nدرب راننده یه ضربه یکی پارسال زده بهش تو پارک که بوده  خیلی جزیی رفته تو که دستش نزاشتم و فابریک\n\nبه تازگی کولر رو گاز کردم نو نو و یخچال \nبخاری عالی \nتک استارت روشن \nگازی بود ولی به خاطر گذشتن تاریخ مخزن گاز باز کردم \nولی تمام وسایل گازش هست فقط مخزن میخاد \nمعاینه فنی ۱ سال تازه گرفتم .\nروکش صندلی تمیز هست اما نو نیست \nبیشتر مصرفی هاشو خرد خرد عوض کردم \n\nبه تازگی هم ۲ تومن خرجش کردم \nاز لنت و پلس و رادیاتور و فن و ...نو شده \n\nیه تصادف جزیی داشتم پارسال که شاسی خیلی کم ضربه دید و درستش کردم و مشکلی نداره به شرط\n\nاگه مشکل مالی و بدهی نداشتم به هیچ وجه نمیفروختم .انشالله هر کی خرید خیرشو ببینه و کیف کنه باهاش . \nفقط معاوضه با روا  و اردی تمیز  تمام\nقیمت مقطوع مقطوع هست .| سایت ثبت آگهی، نیازمندی و خرید و فروش دیوار",
+    "android_package_name": "ir.divar",
+    "android_app_url": "android-app://ir.divar/http/v/پراید 141 ساده، مدل ۱۳۸۸/wYFKsQwZ/",
+    "web_info": {
+      "title": "پراید 141 ساده، مدل ۱۳۸۸",
+      "district_persian": "تخت فولاد",
+      "city_persian": "اصفهان",
+      "category_slug_persian": "سواری و وانت"
+    }
+  },
+  "contact": {
+    "chat_enabled": true
+  },
+  "webengage": {
+    "category": "light",
+    "city": "isfahan",
+    "brand_model": "Pride 141 basic",
+    "business_type": "personal",
+    "price": 105000000
+  },
+  "analytics": {
+    "cat1": "vehicles",
+    "cat2": "cars",
+    "cat3": "light",
+    "city": "isfahan"
+  }
+}
