@@ -117,16 +117,6 @@ func (s *service) Get(ctx context.Context, carToken protocol.CarToken) (protocol
 		}
 	}
 
-	// fmt.Println("motor: ", motorStatusStr)
-	// fmt.Println("chassis: ", chassisStatusStr)
-	// fmt.Println("body: ", bodyStatusStr)
-	// fmt.Println("insurance: ", insuranceDueStr)
-	// fmt.Println("gearbox: ", gearboxStr)
-	// fmt.Println("cost: ", costStr)
-	// fmt.Println("usage: ", usageStr)
-	// fmt.Println("year: ", yearStr)
-	// fmt.Println("color: ", colorStr)
-
 	usageKM, err := pnum.ToInt(usageStr)
 	if err != nil {
 		return protocol.Car{}, err
