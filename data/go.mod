@@ -1,4 +1,4 @@
-module github.com/mehdieidi/carify/datafetch
+module github.com/mehdieidi/carify/data
 
 go 1.19
 

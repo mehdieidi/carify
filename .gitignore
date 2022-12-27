@@ -16,6 +16,9 @@
 
 .vscode/
 logs.log
-datafetch/datafetch
-datafetch/datafetch.exe
+data/data
+data/data.exe
 tokens
+pycsv/env
+*.csv
+sample/

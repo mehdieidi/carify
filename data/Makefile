@@ -1,4 +1,4 @@
-MODULE=github.com/mehdieidi/carify/datafetch
+MODULE=github.com/mehdieidi/carify/data
 
 MIGRATIONS_PATH=internal/database/migrations
 
@@ -20,8 +20,14 @@ doc:
 build:
 	go build -tags postgres
 
-server:
-	./datafetch
+fetch_build:
+	./data -fetch
+
+preprocess_build:
+	./data -preprocess
+
+onehot_build:
+	./data -onehot
 
 postgres_container:
 	docker run --name $(POSTGRES_CONTAINER) -p 5440:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=1234 -d postgres:alpine
@@ -50,6 +56,10 @@ create_migration:
 fix_migrate:
 	migrate -database "postgresql://postgres:1234@localhost:5440/carify_db?sslmode=disable" -path "internal/database/migrations" force $(VERSION)
 
-pipeline: tidy doc fmt build server
+fetch: tidy doc fmt build fetch_build
+
+preprocess: tidy doc fmt build preprocess_build
+
+onehot: tidy doc fmt build onehot_build
 
 .PHONY: tidy fmt doc build server postgres_container create_postgres_db drop_postgres_db migrateup migrateup_1 migratedown migratedown_1 create_migration fix_migrate pipeline

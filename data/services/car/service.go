@@ -4,10 +4,10 @@ import (
 	"context"
 	"time"
 
-	"github.com/mehdieidi/carify/datafetch/pkg/divar"
-	"github.com/mehdieidi/carify/datafetch/pkg/log"
-	"github.com/mehdieidi/carify/datafetch/pkg/pnum"
-	"github.com/mehdieidi/carify/datafetch/protocol"
+	"github.com/mehdieidi/carify/data/pkg/divar"
+	"github.com/mehdieidi/carify/data/pkg/log"
+	"github.com/mehdieidi/carify/data/pkg/pnum"
+	"github.com/mehdieidi/carify/data/protocol"
 )
 
 type service struct {
@@ -185,4 +185,69 @@ func (s *service) Get(ctx context.Context, carToken protocol.CarToken) (protocol
 	}
 
 	return c, nil
+}
+
+func (s *service) GetByID(ctx context.Context, id protocol.CarID) (protocol.Car, error) {
+	return s.carStorage.FindByID(ctx, id)
+}
+
+func (s *service) Update(ctx context.Context, id protocol.CarID, car protocol.Car) error {
+	c, err := s.GetByID(ctx, id)
+	if err != nil {
+		return err
+	}
+
+	if car.Token != "" {
+		c.Token = car.Token
+	}
+
+	if car.Year != 0 {
+		c.Year = car.Year
+	}
+
+	if car.Color != 0 {
+		c.Color = car.Color
+	}
+
+	if car.UsageKM != 0 {
+		c.UsageKM = car.UsageKM
+	}
+
+	if car.BodyStatus != 0 {
+		c.BodyStatus = car.BodyStatus
+	}
+
+	if car.CashCost != 0 {
+		c.CashCost = car.CashCost
+	}
+
+	if car.MotorStatus != 0 {
+		c.MotorStatus = car.MotorStatus
+	}
+
+	if car.FrontChassisStatus != 0 {
+		c.FrontChassisStatus = car.FrontChassisStatus
+	}
+
+	if car.RearChassisStatus != 0 {
+		c.RearChassisStatus = car.RearChassisStatus
+	}
+
+	if car.ThirdPartyInsuranceDue != 0 {
+		c.ThirdPartyInsuranceDue = car.ThirdPartyInsuranceDue
+	}
+
+	if car.Gearbox != 0 {
+		c.Gearbox = car.Gearbox
+	}
+
+	if err := s.carStorage.Update(ctx, id, c); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (s *service) Delete(ctx context.Context, id protocol.CarID) error {
+	return s.carStorage.Delete(ctx, id)
 }

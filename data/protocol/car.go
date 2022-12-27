@@ -3,7 +3,7 @@ package protocol
 import (
 	"context"
 
-	"github.com/mehdieidi/carify/datafetch/pkg/divar"
+	"github.com/mehdieidi/carify/data/pkg/divar"
 )
 
 type CarID uint
@@ -28,9 +28,15 @@ type CarToken string
 type CarStorage interface {
 	Store(context.Context, Car) (CarID, error)
 	FindByToken(context.Context, CarToken) (Car, error)
+	FindByID(context.Context, CarID) (Car, error)
+	Update(context.Context, CarID, Car) error
+	Delete(context.Context, CarID) error
 }
 
 type CarService interface {
 	Search(ctx context.Context, cities []string, brandModels []string) ([]CarToken, error)
 	Get(context.Context, CarToken) (Car, error)
+	GetByID(context.Context, CarID) (Car, error)
+	Update(context.Context, CarID, Car) error
+	Delete(context.Context, CarID) error
 }
