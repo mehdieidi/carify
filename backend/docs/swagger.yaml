@@ -1,0 +1,189 @@
+basePath: /v1
+definitions:
+  predict.predictRequest:
+    properties:
+      body_status_value:
+        type: integer
+      color_value:
+        type: integer
+      front_chassis_status_value:
+        type: integer
+      gearbox:
+        type: integer
+      insurance:
+        type: integer
+      motor_status_value:
+        type: integer
+      rear_chassis_status_value:
+        type: integer
+      usage_km:
+        type: integer
+      year:
+        type: integer
+    type: object
+  protocol.SiteSetting:
+    properties:
+      body:
+        items:
+          properties:
+            name:
+              type: string
+            value:
+              type: integer
+          type: object
+        type: array
+      color:
+        items:
+          properties:
+            name:
+              type: string
+            value:
+              type: integer
+          type: object
+        type: array
+      front_chassis_status:
+        items:
+          properties:
+            name:
+              type: string
+            value:
+              type: integer
+          type: object
+        type: array
+      gearbox:
+        items:
+          properties:
+            name:
+              type: string
+            value:
+              type: integer
+          type: object
+        type: array
+      motor_status:
+        items:
+          properties:
+            name:
+              type: string
+            value:
+              type: integer
+          type: object
+        type: array
+      rear_chassis_status:
+        items:
+          properties:
+            name:
+              type: string
+            value:
+              type: integer
+          type: object
+        type: array
+    type: object
+  transport.Response:
+    properties:
+      data: {}
+    type: object
+info:
+  contact: {}
+  title: carify Backend API
+paths:
+  /costs/predict:
+    post:
+      consumes:
+      - application/json
+      description: Provide the data of a car and get the cost prediction.
+      parameters:
+      - description: carData
+        in: body
+        name: carData
+        required: true
+        schema:
+          $ref: '#/definitions/predict.predictRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/transport.Response'
+            - properties:
+                Data:
+                  type: integer
+              type: object
+        "400":
+          description: Invalid request
+          schema:
+            additionalProperties:
+              allOf:
+              - type: string
+              - properties:
+                  error:
+                    type: string
+                type: object
+            type: object
+        "500":
+          description: Internal server error
+          schema:
+            additionalProperties:
+              allOf:
+              - type: string
+              - properties:
+                  error:
+                    type: string
+                type: object
+            type: object
+      summary: predict
+      tags:
+      - Predict
+  /site/settings/get:
+    get:
+      description: get site settings.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/transport.Response'
+            - properties:
+                Data:
+                  $ref: '#/definitions/protocol.SiteSetting'
+              type: object
+        "400":
+          description: Invalid request
+          schema:
+            additionalProperties:
+              allOf:
+              - type: string
+              - properties:
+                  error:
+                    type: string
+                type: object
+            type: object
+        "404":
+          description: site setting not found
+          schema:
+            additionalProperties:
+              allOf:
+              - type: string
+              - properties:
+                  error:
+                    type: string
+                type: object
+            type: object
+        "500":
+          description: Internal server error
+          schema:
+            additionalProperties:
+              allOf:
+              - type: string
+              - properties:
+                  error:
+                    type: string
+                type: object
+            type: object
+      summary: get site settings
+      tags:
+      - SiteSetting
+swagger: "2.0"
