@@ -134,8 +134,6 @@ func (s *service) Predict(ctx context.Context, c protocol.CarData) (int, error) 
 		return 0, err
 	}
 
-	strings.TrimSpace(outBuf.String())
-
 	predictedCost, err := strconv.Atoi(strings.TrimSpace(outBuf.String()))
 	if err != nil {
 		return 0, err
