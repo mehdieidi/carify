@@ -32,13 +32,6 @@ ul li {
   /* justify-content: space-between; */
 }
 
-/* .nav-bar img {
-  margin-top: 2vh;
-  margin-left: 2vh;
-  width: 30px;
-  height: 30px;
-} */
-
 .nav-list {
   width: 20%;
   display: flex;
@@ -94,10 +87,11 @@ ul li {
   padding-bottom: 5vh;
   padding-top: 3vh;
 }
+
 #input {
-  /* height: 36px; */
   min-height: 38px;
-  width: 267.797px;
+  max-width: 267.797px;
+  /* width: 267.797px; */
   border-radius: 5px;
   border: white 1px solid;
 }

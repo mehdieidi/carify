@@ -1,11 +1,13 @@
 import "./Home.css";
 import Select from "react-select";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 function Home() {
   const brand = [{ label: "پراید 141 ساده", value: 1 }];
   const [show, setShow] = useState(false);
   const [predict, setPredict] = useState(0);
+  const [getdata, setgetdata] = useState(0);
+  const myRef = useRef(null);
 
   const year = [
     { label: "1394", value: 1 },
@@ -56,14 +58,14 @@ function Home() {
   const [year_, setyear] = useState(0);
 
   useEffect(() => getInfo(), []);
-  useEffect(() => getInfo(), []);
+  useEffect(() => getInfo(), [getdata]);
+
+  const executeScroll = () => myRef.current.scrollIntoView();
 
   function getInfo() {
-    console.log("hee lllo");
     axios
       .get(`http://45.67.85.169:8080/v1/site/settings/get`)
       .then((resp) => {
-        console.log("gett");
         console.log(resp.data);
         setBody(resp.data.data.body);
         setColor(resp.data.data.color);
@@ -82,7 +84,7 @@ function Home() {
         console.log("failed");
       });
   }
-  //
+
   function submit(e) {
     e.preventDefault();
     console.log("submit func");
@@ -138,31 +140,34 @@ function Home() {
             با جمع آوری اطلاعات خودرو از سایت دیوار، قیمت خودرو را پیش بینی می
             کند
           </p>
-          {/* <button>شروع</button> */}
+          <button onClick={executeScroll}>شروع</button>
         </div>
         <div id="header-photo">
           <img src={require("./RTX2d5Q7X.jpg")} alt="cars" />
         </div>
       </header>
-      <section className="form-section">
+      <section className="form-section" ref={myRef}>
         <h3 style={{ marginBottom: "6vh" }}>لطفا اطلاعات خودرو را وارد کنید</h3>
         <form style={{ marginBottom: "5vh" }}>
           <label>برند و تیپ</label>
-          <Select className="select" placeholder="برند و تیپ" options={brand} />
+          <Select
+            className="select"
+            placeholder="برند و تیپ"
+            options={brand}
+            onChange={(e) => {
+              setgetdata(getdata + 1);
+            }}
+          />
           <label>سال تولید (بر اساس تیپ)</label>
           <Select
             className="select"
             placeholder="سال تولید (بر اساس تیپ)"
             options={year}
             id="year"
-            // value={year_}
             onChange={(e) => {
               console.log(e.label);
-              // let res = year.find((item) => item.label === e.label);
-              // console.log(res);
               console.log(typeof e.label);
               let str = parseInt(e.label, 10);
-              // setyear(parseInt(str, 10));
               console.log(typeof str);
               setyear(str);
             }}
@@ -175,7 +180,6 @@ function Home() {
             getOptionLabel={(option) => option.name}
             getOptionValue={(option) => option.value}
             id="color"
-            // value={color_value}
             onChange={(e) => {
               console.log(e.name);
               let res = color.find((item) => item.name === e.name);
@@ -192,8 +196,6 @@ function Home() {
             type="text"
             id="input"
             onChange={(e) => {
-              // console.log(e.target.value);
-              // setusage_km(parseInt(e.target.value, 10));
               let str = parseInt(e.target.value, 10);
               console.log(typeof str);
               setusage_km(str);
