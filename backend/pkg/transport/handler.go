@@ -5,7 +5,7 @@ import (
 
 	"back/pkg/log"
 
-	"bitbucket.imenaria.org/tool/toolkit/transport"
+	transport "back/pkg/kittransport"
 )
 
 func ErrorHandler(logger log.Logger, domain string) transport.ErrorHandlerFunc {

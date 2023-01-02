@@ -4,8 +4,6 @@ import (
 	"net/http"
 
 	"back/protocol/derror"
-
-	kitjwt "bitbucket.imenaria.org/tool/toolkit/auth/jwt"
 )
 
 var errs = map[error]func(http.ResponseWriter){
@@ -13,11 +11,6 @@ var errs = map[error]func(http.ResponseWriter){
 	derror.ErrInternalServer: status(http.StatusInternalServerError),
 
 	// status unauthorized.
-	kitjwt.ErrTokenContextMissing: status(http.StatusUnauthorized),
-	kitjwt.ErrTokenExpired:        status(http.StatusUnauthorized),
-	kitjwt.ErrTokenInvalid:        status(http.StatusUnauthorized),
-	kitjwt.ErrTokenMalformed:      status(http.StatusUnauthorized),
-	kitjwt.ErrTokenNotActive:      status(http.StatusUnauthorized),
 
 	// status forbidden.
 

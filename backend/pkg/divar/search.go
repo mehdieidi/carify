@@ -9,7 +9,7 @@ import (
 	"net/url"
 	"time"
 
-	kithttp "bitbucket.imenaria.org/tool/toolkit/transport/http"
+	kithttp "back/pkg/kittransport/http"
 )
 
 var (
