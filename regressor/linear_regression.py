@@ -9,15 +9,12 @@ y = df['cash_cost']
 
 from sklearn.model_selection import train_test_split
 
-# random_state as the name suggests, is used for initializing the internal random number generator,
-# which will decide the splitting of data into train and test indices in your case
-X_train, X_test, y_train, y_test = train_test_split(x,y , random_state=4,test_size=0.2, shuffle=True)
+X_train, X_test, y_train, y_test = train_test_split(x,y , test_size=0.2, shuffle=True)
 
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
 
-# n_estimators is the number of the trees in the forrest. max_depth is set to prevent over growing of trees.
-regressor = RandomForestRegressor(criterion='absolute_error',n_estimators = 200, max_depth=10)
+regressor = LinearRegression() 
 regressor.fit(X_train.values,y_train)
 
 y_pred = regressor.predict(X_test)
