@@ -185,7 +185,7 @@ func (s *storage) Update(ctx context.Context, id protocol.CarID, car protocol.Ca
 		WHERE id = $1
 	`
 
-	row := s.db.QueryRowContext(ctx, query, car.ID,
+	_, err := s.db.Exec(query, car.ID,
 		car.Year,
 		car.Color,
 		car.UsageKM,
@@ -198,31 +198,43 @@ func (s *storage) Update(ctx context.Context, id protocol.CarID, car protocol.Ca
 		car.Gearbox,
 		car.Token,
 	)
-
-	if err := row.Err(); err != nil {
-		s.logger.Error(domain, log.StorageLayer, "Update", log.Args{log.LogErrKey: err})
-		if errors.Is(err, sql.ErrNoRows) {
-			return derror.ErrUnknownCar
-		}
-		return derror.ErrUnexpected
+	if err != nil {
+		return err
 	}
 
 	return nil
+
+	// row := s.db.QueryRowContext(ctx, query, car.ID,
+	// 	car.Year,
+	// 	car.Color,
+	// 	car.UsageKM,
+	// 	car.BodyStatus,
+	// 	car.CashCost,
+	// 	car.MotorStatus,
+	// 	car.FrontChassisStatus,
+	// 	car.RearChassisStatus,
+	// 	car.ThirdPartyInsuranceDue,
+	// 	car.Gearbox,
+	// 	car.Token,
+	// )
+
+	// if err := row.Err(); err != nil {
+	// 	s.logger.Error(domain, log.StorageLayer, "Update", log.Args{log.LogErrKey: err})
+	// 	if errors.Is(err, sql.ErrNoRows) {
+	// 		return derror.ErrUnknownCar
+	// 	}
+	// 	return derror.ErrUnexpected
+	// }
+
+	// return nil
 }
 
 func (s *storage) Delete(ctx context.Context, id protocol.CarID) error {
 	const query = `DELETE FROM cars WHERE id = $1`
 
-	_, err := s.FindByID(ctx, id)
+	_, err := s.db.Exec(query, id)
 	if err != nil {
-		s.logger.Error(domain, log.StorageLayer, "Delete", log.Args{log.LogErrKey: err})
 		return err
-	}
-
-	_, err = s.db.ExecContext(ctx, query, id)
-	if err != nil {
-		s.logger.Error(domain, log.StorageLayer, "Delete", log.Args{log.LogErrKey: err})
-		return derror.ErrUnexpected
 	}
 
 	return nil

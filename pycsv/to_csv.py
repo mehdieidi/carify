@@ -1,5 +1,4 @@
 # Python program to read data from a PostgreSQL table and load into a pandas DataFrame.
-import psycopg2
 import pandas as pds
 from sqlalchemy import create_engine
 

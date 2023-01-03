@@ -110,28 +110,6 @@ paths:
                 Data:
                   type: integer
               type: object
-        "400":
-          description: Invalid request
-          schema:
-            additionalProperties:
-              allOf:
-              - type: string
-              - properties:
-                  error:
-                    type: string
-                type: object
-            type: object
-        "500":
-          description: Internal server error
-          schema:
-            additionalProperties:
-              allOf:
-              - type: string
-              - properties:
-                  error:
-                    type: string
-                type: object
-            type: object
       summary: predict
       tags:
       - Predict
