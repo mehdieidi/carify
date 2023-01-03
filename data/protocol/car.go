@@ -34,7 +34,7 @@ type CarStorage interface {
 }
 
 type CarService interface {
-	Search(ctx context.Context, cities []string, brandModels []string) ([]CarToken, error)
+	Search(ctx context.Context, cities []string, brandModel string) ([]CarToken, error)
 	Get(context.Context, CarToken) (Car, error)
 	GetByID(context.Context, CarID) (Car, error)
 	Update(context.Context, CarID, Car) error

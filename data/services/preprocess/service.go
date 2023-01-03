@@ -10,7 +10,8 @@ import (
 
 type service struct {
 	preprocessStorage protocol.PreProcessStorage
-	carService        protocol.CarService
+
+	carService protocol.CarService
 }
 
 func NewService(preprocessStorage protocol.PreProcessStorage, carService protocol.CarService) protocol.PreProcessService {
@@ -24,14 +25,11 @@ func (s *service) List(ctx context.Context) ([]protocol.Car, error) {
 	return s.preprocessStorage.FindAll(ctx)
 }
 
-func (s *service) Year(ctx context.Context) error {
+func (s *service) Year(ctx context.Context, minYear, maxYear int) error {
 	cars, err := s.List(ctx)
 	if err != nil {
 		return err
 	}
-
-	const minYear = 1382
-	const maxYear = 1394
 
 	carYearTypesCount := map[int]int{}
 
@@ -41,7 +39,7 @@ func (s *service) Year(ctx context.Context) error {
 		}
 	}
 
-	mostCommon := 1382
+	mostCommon := 1390
 	for year, count := range carYearTypesCount {
 		if count > carYearTypesCount[mostCommon] {
 			mostCommon = year
@@ -53,7 +51,7 @@ func (s *service) Year(ctx context.Context) error {
 	preProcessedCount := 0
 	for _, c := range cars {
 		if c.Year < minYear || c.Year > maxYear {
-			fmt.Println("car", c.ID, "has wrong year", c.Year)
+			fmt.Println("car", c.ID, "has wrong year:", c.Year)
 
 			err := s.carService.Update(ctx, c.ID, protocol.Car{Year: mostCommon})
 			if err != nil {
@@ -95,7 +93,7 @@ func (s *service) Color(ctx context.Context) error {
 	preProcessedCount := 0
 	for _, c := range cars {
 		if c.Color == 0 {
-			fmt.Println("car", c.ID, "has wrong color", c.Color)
+			fmt.Println("car", c.ID, "has wrong color:", c.Color)
 
 			err := s.carService.Update(ctx, c.ID, protocol.Car{Color: divar.Color(mostCommon)})
 			if err != nil {
@@ -131,12 +129,12 @@ func (s *service) UsageKM(ctx context.Context) error {
 
 	avgUsageKM := sumUsageKM / count
 
-	fmt.Println("avg usage km is", avgUsageKM)
+	fmt.Println("avg usage km is:", avgUsageKM)
 
 	preProcessedCount := 0
 	for _, c := range cars {
 		if c.UsageKM <= 0 || c.UsageKM > maxUsageKM {
-			fmt.Println("car", c.ID, "has wrong usageKM", c.UsageKM)
+			fmt.Println("car", c.ID, "has wrong usageKM:", c.UsageKM)
 
 			err := s.carService.Update(ctx, c.ID, protocol.Car{UsageKM: avgUsageKM})
 			if err != nil {
@@ -178,7 +176,7 @@ func (s *service) BodyStatus(ctx context.Context) error {
 	preProcessedCount := 0
 	for _, c := range cars {
 		if c.BodyStatus == 0 {
-			fmt.Println("car", c.ID, "has wrong body status", c.BodyStatus)
+			fmt.Println("car", c.ID, "has wrong body status:", c.BodyStatus)
 
 			err := s.carService.Update(ctx, c.ID, protocol.Car{BodyStatus: divar.BodyStatus(mostCommon)})
 			if err != nil {
@@ -200,8 +198,8 @@ func (s *service) CashCost(ctx context.Context) error {
 		return err
 	}
 
-	const maxCost = 250_000_000
-	const minCost = 55_000_000
+	const maxCost = 260_000_000
+	const minCost = 100_000_000
 
 	wrongCostCount := 0
 
@@ -249,7 +247,7 @@ func (s *service) MotorStatus(ctx context.Context) error {
 	preProcessedCount := 0
 	for _, c := range cars {
 		if c.MotorStatus == 0 {
-			fmt.Println("car", c.ID, "has wrong motor status", c.MotorStatus)
+			fmt.Println("car", c.ID, "has wrong motor status:", c.MotorStatus)
 
 			err := s.carService.Update(ctx, c.ID, protocol.Car{MotorStatus: divar.MotorStatus(mostCommon)})
 			if err != nil {
@@ -291,7 +289,7 @@ func (s *service) FrontChassisStatus(ctx context.Context) error {
 	preProcessedCount := 0
 	for _, c := range cars {
 		if c.FrontChassisStatus == 0 {
-			fmt.Println("car", c.ID, "has wrong front chassis status", c.FrontChassisStatus)
+			fmt.Println("car", c.ID, "has wrong front chassis status:", c.FrontChassisStatus)
 
 			err := s.carService.Update(ctx, c.ID, protocol.Car{FrontChassisStatus: divar.ChassisStatus(mostCommon)})
 			if err != nil {
@@ -333,7 +331,7 @@ func (s *service) RearChassisStatus(ctx context.Context) error {
 	preProcessedCount := 0
 	for _, c := range cars {
 		if c.RearChassisStatus == 0 {
-			fmt.Println("car", c.ID, "has wrong rear chassis status", c.RearChassisStatus)
+			fmt.Println("car", c.ID, "has wrong rear chassis status:", c.RearChassisStatus)
 
 			err := s.carService.Update(ctx, c.ID, protocol.Car{RearChassisStatus: divar.ChassisStatus(mostCommon)})
 			if err != nil {
@@ -375,7 +373,7 @@ func (s *service) InsuranceDue(ctx context.Context) error {
 	preProcessedCount := 0
 	for _, c := range cars {
 		if c.ThirdPartyInsuranceDue == 0 {
-			fmt.Println("car", c.ID, "has wrong insurance due", c.ThirdPartyInsuranceDue)
+			fmt.Println("car", c.ID, "has wrong insurance due:", c.ThirdPartyInsuranceDue)
 
 			err := s.carService.Update(ctx, c.ID, protocol.Car{ThirdPartyInsuranceDue: mostCommon})
 			if err != nil {
@@ -417,7 +415,7 @@ func (s *service) GearBox(ctx context.Context) error {
 	preProcessedCount := 0
 	for _, c := range cars {
 		if c.Gearbox == 0 {
-			fmt.Println("car", c.ID, "has wrong gearbox type", c.Gearbox)
+			fmt.Println("car", c.ID, "has wrong gearbox type:", c.Gearbox)
 
 			err := s.carService.Update(ctx, c.ID, protocol.Car{Gearbox: divar.Gearbox(mostCommon)})
 			if err != nil {

@@ -20,10 +20,10 @@ func NewService(carStorage protocol.CarStorage, logger log.Logger) protocol.CarS
 	return &service{carStorage: carStorage, logger: logger}
 }
 
-func (s *service) Search(ctx context.Context, cities []string, brandModels []string) ([]protocol.CarToken, error) {
+func (s *service) Search(ctx context.Context, cities []string, brandModel string) ([]protocol.CarToken, error) {
 	carTokens := []protocol.CarToken{}
 
-	searchReq := divar.NewSearchRequest("light", brandModels, cities, 0)
+	searchReq := divar.NewSearchRequest("light", brandModel, cities, 0)
 
 	for {
 		time.Sleep(1 * time.Second)
@@ -44,7 +44,6 @@ func (s *service) Search(ctx context.Context, cities []string, brandModels []str
 		for _, t := range searchResp.WebWidgets.PostList {
 			carTokens = append(carTokens, protocol.CarToken(t.Data.Action.Payload.Token))
 		}
-
 	}
 
 	return carTokens, nil

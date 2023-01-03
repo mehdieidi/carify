@@ -8,7 +8,7 @@ type PreProcessStorage interface {
 
 type PreProcessService interface {
 	List(context.Context) ([]Car, error)
-	Year(context.Context) error
+	Year(ctx context.Context, minYear, maxYear int) error
 	Color(context.Context) error
 	UsageKM(context.Context) error
 	BodyStatus(context.Context) error

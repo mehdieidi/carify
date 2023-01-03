@@ -203,30 +203,6 @@ func (s *storage) Update(ctx context.Context, id protocol.CarID, car protocol.Ca
 	}
 
 	return nil
-
-	// row := s.db.QueryRowContext(ctx, query, car.ID,
-	// 	car.Year,
-	// 	car.Color,
-	// 	car.UsageKM,
-	// 	car.BodyStatus,
-	// 	car.CashCost,
-	// 	car.MotorStatus,
-	// 	car.FrontChassisStatus,
-	// 	car.RearChassisStatus,
-	// 	car.ThirdPartyInsuranceDue,
-	// 	car.Gearbox,
-	// 	car.Token,
-	// )
-
-	// if err := row.Err(); err != nil {
-	// 	s.logger.Error(domain, log.StorageLayer, "Update", log.Args{log.LogErrKey: err})
-	// 	if errors.Is(err, sql.ErrNoRows) {
-	// 		return derror.ErrUnknownCar
-	// 	}
-	// 	return derror.ErrUnexpected
-	// }
-
-	// return nil
 }
 
 func (s *storage) Delete(ctx context.Context, id protocol.CarID) error {

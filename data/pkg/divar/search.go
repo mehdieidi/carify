@@ -29,11 +29,11 @@ type SearchRequest struct {
 	LastPostDate int64 `json:"last-post-date"`
 }
 
-func NewSearchRequest(category string, brandModels []string, cities []string, lastPostDate int64) SearchRequest {
+func NewSearchRequest(category string, brandModel string, cities []string, lastPostDate int64) SearchRequest {
 	var s SearchRequest
 
 	s.JSONSchema.Category.Value = category
-	s.JSONSchema.BrandModel.Value = brandModels
+	s.JSONSchema.BrandModel.Value = []string{brandModel}
 	s.JSONSchema.Cities = cities
 	s.LastPostDate = lastPostDate
 
