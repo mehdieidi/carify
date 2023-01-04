@@ -3,7 +3,6 @@ module github.com/mehdieidi/carify/data
 go 1.19
 
 require (
-	bitbucket.imenaria.org/tool/toolkit v0.0.0-20220918222256-f499e7e78e27
 	github.com/golang-migrate/migrate/v4 v4.15.2
 	github.com/joho/godotenv v1.4.0
 	github.com/lib/pq v1.10.7
