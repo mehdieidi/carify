@@ -8,8 +8,6 @@ from joblib import dump
 import numpy as np
 from bokeh.plotting import figure, show, output_file
 
-
-## Linear Regression Training ##
 df = pd.read_csv("../pycsv/pcars_data.csv")
 x = df.drop(labels="cash_cost", axis=1).iloc[:,2:-1]
 y = df['cash_cost']
@@ -19,9 +17,7 @@ regressor.fit(X_train.values,y_train)
 y_pred = regressor.predict(x_test)
 mae1 = mean_absolute_error(y_test, y_pred)
 print(mae1)
-#################################
 
-## PLOT  2 ##
 plt.figure(figsize=(10,10))
 plt.scatter(y_test, y_pred, c='crimson')
 plt.yscale('log')
@@ -34,19 +30,14 @@ plt.xlabel('True Values', fontsize=15)
 plt.ylabel('Predictions', fontsize=15)
 plt.axis('equal')
 plt.show()
-##################################
 
-
-## Decision Tree Training ##
 from sklearn.tree import DecisionTreeRegressor 
 regressor = DecisionTreeRegressor(criterion='absolute_error')
 regressor.fit(X_train.values,y_train)
 y_pred2 = regressor.predict(x_test)
 mae2 = mean_absolute_error(y_test, y_pred2)
 print(mae2)
-###################################
 
-## PLOT 1 ##
 y_test = np.array(y_test)
 y_pred = np.array(y_pred)
 y_pred2 = np.array(y_pred2)
@@ -57,5 +48,4 @@ df1.plot(kind='bar',figsize=(16,10))
 plt.grid(linestyle='-', linewidth='0.5', color='green')
 plt.grid( linestyle=':', linewidth='0.5', color='black')
 plt.show()
-##################################
 
