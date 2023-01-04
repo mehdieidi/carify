@@ -9,7 +9,7 @@ y = df['cash_cost']
 
 from sklearn.model_selection import train_test_split
 
-X_train, X_test, y_train, y_test = train_test_split(x,y , test_size=0.2, shuffle=True)
+X_train, X_test, y_train, y_test = train_test_split(x,y , test_size=0.25, shuffle=True)
 
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
