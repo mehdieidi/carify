@@ -1,0 +1,95 @@
+# plt.figure(figsize=(10,10))
+# plt.scatter(y_test, y_pred, c='crimson')
+# plt.yscale('log')
+# plt.xscale('log')
+
+# p1 = max(max(y_pred), max(y_test))
+# p2 = min(min(y_pred), min(y_test))
+# plt.plot([p1, p2], [p1, p2], 'b-')
+# plt.xlabel('True Values', fontsize=15)
+# plt.ylabel('Predictions', fontsize=15)
+# plt.axis('equal')
+# plt.show()
+
+# fig = plt.figure()
+# ax = fig.add_axes([0,0,1,1])
+# langs = ['linear regression', 'decision tree']
+# students = [mae1,mae2]
+# ax.bar(langs,students, width=0.2)
+# plt.show()
+
+# plt.figure(figsize=(10,10))
+# plt.scatter(y_test, y_pred, c='crimson')
+# plt.yscale('log')
+# plt.xscale('log')
+
+# p1 = max(max(y_pred), max(y_test))
+# p2 = min(min(y_pred), min(y_test))
+# plt.plot([p1, p2], [p1, p2], 'b-')
+# plt.xlabel('True Values', fontsize=15)
+# plt.ylabel('Predictions', fontsize=15)
+# plt.axis('equal')
+# plt.show()
+
+# from regressormetricgraphplot import *
+
+
+# # CompareModels.R2AndRMSE(y_test=y_test, y_pred=y_pred)
+# plot = CompareModels()
+# plot.add(model_name='Linear Regression', y_test=y_test, y_pred=y_pred)
+
+# from sklearn.tree import DecisionTreeRegressor 
+# regressor = DecisionTreeRegressor(criterion='absolute_error')
+# regressor.fit(X_train.values,y_train)
+
+# y_pred = regressor.predict(x_test)
+# # CompareModels.R2AndRMSE(y_test=y_test, y_pred=y_pred)
+# # plot = CompareModels()
+# plot.add(model_name='Decision Tree', y_test=y_test, y_pred=y_pred)
+
+# plot.show(figsize=(10, 5))
+
+
+
+
+
+
+
+
+
+
+# plt.plot(x_test,y_test)
+# plt.errorbar(x_test,y_pred,mae)
+# plt.title('Sinusoidal Data with Noise + Predictions')
+# plt.xlabel('x')
+# plt.ylabel('y')
+# plt.legend(['y_test','y_pred'])
+# plt.show()
+
+# x_test = np.linspace(0,4*np.pi,50)
+
+# plt.plot(x_test, y_test, 'red')
+# plt.plot(x_test, y_pred, 'blue')
+# plt.title('Sinusoidal Data with Noise + Predictions')
+# plt.xlabel('x')
+# plt.ylabel('y')
+# plt.legend(['y_true','y_pred'])
+# plt.show()
+
+# p=figure(title="Actual vs Predicted", width=1480, height=980)
+# p.title.align = 'center'
+
+# p.circle(x["usage_km"], y)
+# p.line(x["usage_km"], y, legend_label='Actual', line_width=3, line_alpha=0.4)
+# p.circle(y, y_pred, color="red")
+# p.line(y,y_pred, color="red",legend_label='Predicted', line_width=3, line_alpha=0.4)
+
+# p.xaxis.axis_label = 'Usage'
+# p.yaxis.axis_label = 'Cost'
+
+# show(p)
+
+
+# plt.scatter(X_test, y_test,  color='gray')
+# plt.plot(X_test, y_pred, color='red', linewidth=2)
+# plt.show()
