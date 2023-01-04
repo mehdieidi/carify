@@ -29,7 +29,7 @@ plt.xscale('log')
 
 p1 = max(max(y_pred), max(y_test))
 p2 = min(min(y_pred), min(y_test))
-plt.plot([p1, p2], [p1, p2], 'b-')
+plt.plot([p1, p2], [p1, p2])
 plt.xlabel('True Values', fontsize=15)
 plt.ylabel('Predictions', fontsize=15)
 plt.axis('equal')
@@ -47,15 +47,15 @@ print(mae2)
 ###################################
 
 ## PLOT 1 ##
-y_test = np.array(list(y_test))
+y_test = np.array(y_test)
 y_pred = np.array(y_pred)
 y_pred2 = np.array(y_pred2)
 
 df = pd.DataFrame({'Actual': y_test.flatten(), 'Linear Regression Predicted': y_pred.flatten(),  'Decision Tree Predicted': y_pred2.flatten()})
 df1 = df.head(25)
 df1.plot(kind='bar',figsize=(16,10))
-plt.grid(which='major', linestyle='-', linewidth='0.5', color='green')
-plt.grid(which='minor', linestyle=':', linewidth='0.5', color='black')
+plt.grid(linestyle='-', linewidth='0.5', color='green')
+plt.grid( linestyle=':', linewidth='0.5', color='black')
 plt.show()
 ##################################
 
