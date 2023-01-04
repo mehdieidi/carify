@@ -23,7 +23,7 @@ Cost prediction system powered by machine learning algorithms like linear regres
 
 ## Linear Regression Accuracy
 
-<img src="./images/plot2.png" width="700" height="450" />
+<img src="./images/plot2.png" width="500" height="350" />
 
 ## Authors
 
