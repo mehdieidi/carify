@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carify system architecture</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      color-scheme: light;
+      --paper: #f5f3ed;
+      --ink: #102c3a;
+      --muted: #617178;
+      --soft: #7d898e;
+      --accent: #087b78;
+      --sans: "Space Grotesk", Arial, sans-serif;
+      --mono: "Geist Mono", Consolas, monospace;
+    }
+    body {
+      margin: 0;
+      padding: 24px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+    }
+    main { width: min(100%, 960px); margin: 0 auto; }
+    figure { margin: 0; }
+    svg { display: block; width: 100%; height: auto; }
+    @media (max-width: 600px) {
+      body { padding: 16px; }
+      h1 { font-size: 25px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <figure>
+      <svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="carify-architecture-title carify-architecture-desc">
+        <title id="carify-architecture-title">Carify system architecture</title>
+        <desc id="carify-architecture-desc">Divar listings flow through Go data preparation, PostgreSQL, CSV export and model training. The resulting Joblib artifact feeds Python inference behind the Go API and React interface.</desc>
+        <defs>
+          <marker id="carify-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#617178"/>
+          </marker>
+          <marker id="carify-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#087b78"/>
+          </marker>
+          <marker id="carify-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#075d5b"/>
+          </marker>
+        </defs>
+
+        <rect width="960" height="600" fill="#f5f3ed"/>
+        <text x="36" y="40" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="8" font-weight="500" letter-spacing="0.16em">CARIFY · SYSTEM OVERVIEW</text>
+        <text x="36" y="78" fill="#102c3a" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="400">From listing to estimate</text>
+        <text x="36" y="101" fill="#617178" font-family="'Space Grotesk', Arial, sans-serif" font-size="11">Batch preparation creates the model artifact used by the online prediction path.</text>
+        <line x1="36" y1="116" x2="924" y2="116" stroke="rgba(16,44,58,0.14)" stroke-width="0.8"/>
+
+        <!-- Zones -->
+        <rect x="36" y="132" width="888" height="176" rx="8" fill="rgba(16,44,58,0.02)" stroke="rgba(16,44,58,0.12)" stroke-width="0.8"/>
+        <rect x="48" y="136" width="148" height="14" rx="2" fill="#f5f3ed"/>
+        <text x="54" y="146" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="8" font-weight="500" letter-spacing="0.12em">01 · OFFLINE PREPARATION</text>
+
+        <rect x="36" y="336" width="888" height="216" rx="8" fill="rgba(16,44,58,0.02)" stroke="rgba(16,44,58,0.12)" stroke-width="0.8"/>
+        <rect x="48" y="340" width="140" height="14" rx="2" fill="#f5f3ed"/>
+        <text x="54" y="350" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="8" font-weight="500" letter-spacing="0.12em">02 · ONLINE PREDICTION</text>
+
+        <!-- Connections are drawn before nodes. -->
+        <line x1="160" y1="242" x2="192" y2="242" stroke="#075d5b" stroke-width="1.2" marker-end="url(#carify-arrow-link)"/>
+        <line x1="344" y1="242" x2="376" y2="242" stroke="#617178" stroke-width="1.2" marker-end="url(#carify-arrow)"/>
+        <line x1="520" y1="242" x2="552" y2="242" stroke="#617178" stroke-width="1.2" marker-end="url(#carify-arrow)"/>
+        <line x1="712" y1="242" x2="760" y2="242" stroke="#087b78" stroke-width="1.2" marker-end="url(#carify-arrow-accent)"/>
+
+        <line x1="212" y1="434" x2="384" y2="434" stroke="#075d5b" stroke-width="1.2" marker-end="url(#carify-arrow-link)"/>
+        <line x1="384" y1="476" x2="212" y2="476" stroke="#617178" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#carify-arrow)"/>
+        <line x1="548" y1="434" x2="744" y2="434" stroke="#617178" stroke-width="1.2" marker-end="url(#carify-arrow)"/>
+        <line x1="744" y1="476" x2="548" y2="476" stroke="#617178" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#carify-arrow)"/>
+        <line x1="824" y1="276" x2="824" y2="416" stroke="#617178" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#carify-arrow)"/>
+
+        <!-- Arrow labels with paper masks and clear connector gaps. -->
+        <rect x="282" y="414" width="32" height="12" rx="2" fill="#f5f3ed"/>
+        <text x="298" y="423" fill="#075d5b" font-family="'Geist Mono', Consolas, monospace" font-size="8" text-anchor="middle" letter-spacing="0.04em">POST</text>
+        <rect x="282" y="456" width="32" height="12" rx="2" fill="#f5f3ed"/>
+        <text x="298" y="465" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="8" text-anchor="middle" letter-spacing="0.04em">PRICE</text>
+        <rect x="630" y="414" width="36" height="12" rx="2" fill="#f5f3ed"/>
+        <text x="648" y="423" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="8" text-anchor="middle" letter-spacing="0.04em">RUN</text>
+        <rect x="624" y="456" width="48" height="12" rx="2" fill="#f5f3ed"/>
+        <text x="648" y="465" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="8" text-anchor="middle" letter-spacing="0.04em">VALUE</text>
+        <rect x="836" y="346" width="36" height="12" rx="2" fill="#f5f3ed"/>
+        <text x="854" y="355" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="8" text-anchor="middle" letter-spacing="0.04em">LOAD</text>
+
+        <!-- Divar source -->
+        <rect x="48" y="210" width="112" height="64" rx="6" fill="#f5f3ed"/>
+        <rect x="48" y="210" width="112" height="64" rx="6" fill="rgba(16,44,58,0.03)" stroke="rgba(16,44,58,0.30)" stroke-width="1"/>
+        <rect x="56" y="218" width="42" height="12" rx="2" fill="none" stroke="rgba(16,44,58,0.30)" stroke-width="0.8"/>
+        <text x="77" y="227" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="7" text-anchor="middle" letter-spacing="0.07em">SOURCE</text>
+        <text x="104" y="248" fill="#102c3a" font-family="'Space Grotesk', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Divar</text>
+        <text x="104" y="263" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="9" text-anchor="middle">listings</text>
+
+        <!-- Go data pipeline -->
+        <rect x="192" y="210" width="152" height="64" rx="6" fill="#f5f3ed"/>
+        <rect x="192" y="210" width="152" height="64" rx="6" fill="#ffffff" stroke="#102c3a" stroke-width="1"/>
+        <rect x="200" y="218" width="36" height="12" rx="2" fill="none" stroke="rgba(16,44,58,0.30)" stroke-width="0.8"/>
+        <text x="218" y="227" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="7" text-anchor="middle" letter-spacing="0.07em">GO</text>
+        <text x="268" y="248" fill="#102c3a" font-family="'Space Grotesk', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Data service</text>
+        <text x="268" y="263" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="8.5" text-anchor="middle">fetch · clean · one-hot</text>
+
+        <!-- PostgreSQL store -->
+        <rect x="376" y="210" width="144" height="64" rx="6" fill="#f5f3ed"/>
+        <rect x="376" y="210" width="144" height="64" rx="6" fill="rgba(16,44,58,0.05)" stroke="#617178" stroke-width="1"/>
+        <rect x="384" y="218" width="42" height="12" rx="2" fill="none" stroke="rgba(97,113,120,0.45)" stroke-width="0.8"/>
+        <text x="405" y="227" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="7" text-anchor="middle" letter-spacing="0.07em">STORE</text>
+        <text x="448" y="248" fill="#102c3a" font-family="'Space Grotesk', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">PostgreSQL</text>
+        <text x="448" y="263" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="9" text-anchor="middle">cars · pcars</text>
+
+        <!-- Export and training -->
+        <rect x="552" y="210" width="160" height="64" rx="6" fill="#f5f3ed"/>
+        <rect x="552" y="210" width="160" height="64" rx="6" fill="#ffffff" stroke="#102c3a" stroke-width="1"/>
+        <rect x="560" y="218" width="58" height="12" rx="2" fill="none" stroke="rgba(16,44,58,0.30)" stroke-width="0.8"/>
+        <text x="589" y="227" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="7" text-anchor="middle" letter-spacing="0.07em">PYTHON</text>
+        <text x="632" y="248" fill="#102c3a" font-family="'Space Grotesk', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Export + train</text>
+        <text x="632" y="263" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="9" text-anchor="middle">CSV · scikit-learn</text>
+
+        <!-- Model artifact: the visual handoff between offline and online flows. -->
+        <rect x="760" y="210" width="128" height="66" rx="6" fill="#f5f3ed"/>
+        <rect x="760" y="210" width="128" height="66" rx="6" fill="rgba(8,123,120,0.08)" stroke="#087b78" stroke-width="1.2"/>
+        <rect x="768" y="218" width="44" height="12" rx="2" fill="none" stroke="rgba(8,123,120,0.55)" stroke-width="0.8"/>
+        <text x="790" y="227" fill="#087b78" font-family="'Geist Mono', Consolas, monospace" font-size="7" text-anchor="middle" letter-spacing="0.07em">ARTIFACT</text>
+        <text x="824" y="248" fill="#102c3a" font-family="'Space Grotesk', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Model file</text>
+        <text x="824" y="264" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="9" text-anchor="middle">model.joblib</text>
+
+        <!-- React client -->
+        <rect x="76" y="416" width="136" height="72" rx="6" fill="#f5f3ed"/>
+        <rect x="76" y="416" width="136" height="72" rx="6" fill="rgba(97,113,120,0.10)" stroke="#7d898e" stroke-width="1"/>
+        <rect x="84" y="424" width="44" height="12" rx="2" fill="none" stroke="rgba(125,137,142,0.55)" stroke-width="0.8"/>
+        <text x="106" y="433" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="7" text-anchor="middle" letter-spacing="0.07em">CLIENT</text>
+        <text x="144" y="456" fill="#102c3a" font-family="'Space Grotesk', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">React UI</text>
+        <text x="144" y="472" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="9" text-anchor="middle">vehicle details</text>
+
+        <!-- Go API -->
+        <rect x="384" y="416" width="164" height="72" rx="6" fill="#f5f3ed"/>
+        <rect x="384" y="416" width="164" height="72" rx="6" fill="#ffffff" stroke="#102c3a" stroke-width="1"/>
+        <rect x="392" y="424" width="48" height="12" rx="2" fill="none" stroke="rgba(16,44,58,0.30)" stroke-width="0.8"/>
+        <text x="416" y="433" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="7" text-anchor="middle" letter-spacing="0.07em">HTTP API</text>
+        <text x="466" y="456" fill="#102c3a" font-family="'Space Grotesk', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Go backend</text>
+        <text x="466" y="472" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="8.5" text-anchor="middle">settings · feature encoding</text>
+
+        <!-- Python inference -->
+        <rect x="744" y="416" width="160" height="72" rx="6" fill="#f5f3ed"/>
+        <rect x="744" y="416" width="160" height="72" rx="6" fill="#ffffff" stroke="#102c3a" stroke-width="1"/>
+        <rect x="752" y="424" width="54" height="12" rx="2" fill="none" stroke="rgba(16,44,58,0.30)" stroke-width="0.8"/>
+        <text x="779" y="433" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="7" text-anchor="middle" letter-spacing="0.07em">INFERENCE</text>
+        <text x="824" y="456" fill="#102c3a" font-family="'Space Grotesk', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Python predictor</text>
+        <text x="824" y="472" fill="#617178" font-family="'Geist Mono', Consolas, monospace" font-size="9" text-anchor="middle">local model execution</text>
+      </svg>
+    </figure>
+  </main>
+</body>
+</html>
